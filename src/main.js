@@ -29,6 +29,8 @@ import SmallAnnouncement from './components/SmallAnnouncement'
 import BackButton from './components/BackButton'
 import ColorPalette from '@/components/ColorPalette'
 import AlertBar from './components/AlertBar'
+import Calendar from './components/Calendar'
+import Submenu from './components/Submenu'
 
 require('typeface-hind');
 require('typeface-montserrat');
@@ -36,6 +38,11 @@ require("gridsome-plugin-remark-prismjs-all/themes/night-owl.css");
 
 export default function (Vue, { router, head, isClient }) {
   openGraph.forEach(item => head.meta.push(item))
+
+  head.script.push({
+    src: 'https://apis.google.com/js/api.js',
+    body: true
+  })
 
   Vue.config.productionTip = false
   Vue.use(Flare)
@@ -63,6 +70,8 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('BackButton', BackButton)
   Vue.component('ColorPalette', ColorPalette)
   Vue.component('AlertBar', AlertBar)
+  Vue.component('Calendar', Calendar)
+  Vue.component('Submenu', Submenu)
 
   if (isClient) {
   }
